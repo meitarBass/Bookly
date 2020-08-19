@@ -39,7 +39,41 @@ class DataSet {
         Book(name: "Fairy Tale Lenormand", desciprtion: "Fairy Tales have been teaching us timeless life lessons for centuries.", note: "", author: "Lisa Hunt", imgName: "fairytale7"),
         Book(name: "Peep Inside A Fairy Tale Sleeping Beauty", desciprtion: "Cursed at birth, Sleeping Beauty is destined to fall asleep for a hundred years on her sixteenth birthday.", note: "", author: "Colin King", imgName: "fairytale8")
     ]
-
-
+    
+    let fantasy = [
+        Book(name: "Geronimo Stilton and the Kingdom of Fantasy", desciprtion: "Join Geronimo for his biggest, most fabumouse adventure yet! Dragons, mermaids, and much, much more await readers in this very special edition! ", note: "", author: "Geronimo Stilton", imgName: "fantasy1"),
+        Book(name: "Final Fantasy Xv: The Dawn Of The Future", desciprtion: "A volume of all-new, character-driven stories expanding on the world of the hit video game Final Fantasy XV.", note: "", author: "Stephen Kohler", imgName: "fantasy2"),
+        Book(name: "Fantasy Lover", desciprtion: "Dear Reader, Being trapped in a bedroom with a woman is a grand thing. Being trapped in hundreds of bedrooms over two thousand years isn't. ", note: "", author: "Sherrilyn Kenyon", imgName: "fantasy3"),
+        Book(name: "Fantasy in Death", desciprtion: "Of course gaming, like any business, has its fierce rivalries and dirty tricks--as Eve's husband, Roarke, one of U-Play's competitors, knows well. But Minnock was not naive, and he knew how to fight back in the real world as well as the virtual one.", note: "", author: "J D Robb", imgName: "fantasy4"),
+        Book(name: "Lord of the Rings Lcg", desciprtion: "Hot on the trail of Gollum, the heroes venture down the banks of the Anduin, only to hear whispers of a new threat looming. Conflict contains 60 fixed cards from the Shadows of Mirkwood cycle, continuing the heroes' quest to find and apprehend Gollum.", note: "", author: "Fantasy Flight Games", imgName: "fantasy5"),
+        Book(name: "How to Draw Fantasy Art and RPG Maps", desciprtion: "The power of creation is at your fingertips!", note: "", author: "Jared Blando", imgName: "fantasy6"),
+        Book(name: "King of Scars", desciprtion: "The perfect gift for Leigh Bardugo fans, with a beautiful foiled cover. The much-anticipated first book in a brand-new duology by New York Times bestselling author, Leigh Bardugo.", note: "", author: "Leigh Bardugo", imgName: "fantasy7"),
+        Book(name: "Grimgar of Fantasy and Ash", desciprtion: "Haruhiro awakens to darkness and amnesia, among a group of strangers who can only remember their own names...", note: "", author: "Ao Jyumonji", imgName: "fantasy8"),
+        Book(name: "Star Wars: Armada", desciprtion: "Dont wait until its too late to intensify your firepower. The enemy fleet is approaching firing range, and squadrons of starfighters are racing into position.", note: "", author: "Fantasy Flight Games", imgName: "fantasy9")
+    ]
+    
+    let children = [
+        Book(name: "Miss Peregrine's Home For Peculiar Children", desciprtion: "A mysterious island. An abandoned orphanage. And a strange collection of very curious photographs.", note: "", author: "Ransom Riggs", imgName: "children1"),
+        Book(name: "The World's Worst Children", desciprtion: "Are you ready to meet the World's Worst Children? Five beastly boys and five gruesome girls!", note: "", author: "Tony Ross", imgName: "children2"),
+        Book(name: "Children of Blood and Bone", desciprtion: "Winner of the Tonight Show Summer Reads with Jimmy Fallon.", note: "", author: "Tomi Adeyemi", imgName: "children3"),
+        Book(name: "The World's Worst Children 2", desciprtion: "The brilliant follow-up to David Walliams' bestseller The World's Worst Children! Ten more stories about a brand new gang of hilariously horrible kids from everyone's favourite children's author, illustrated in glorious full colour by Tony Ross.", note: "", author: "Tony Ross", imgName: "children4"),
+        Book(name: "Children of Time", desciprtion: "Winner of the 30th anniversary Arthur C. Clarke Award for Best Novel.", note: "", author: "Adrian Tchaikovsky", imgName: "children5")
+    ]
+    
+    func getBooks(forGenre genre: String) -> [Book] {
+        switch genre {
+        case "fairytale":
+            return fairytale
+        case "math":
+            return math
+        case "fantasy":
+            print("Fantasy")
+            return fantasy  
+        case "children's":
+            return children
+        default:
+            return math
+        }
+    }
 }
 

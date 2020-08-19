@@ -11,6 +11,7 @@ import UIKit
 class MainController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let data = DataSet()
+    var genre: BookGenre!
     
     @IBOutlet weak var categoriesTable: UITableView!
     
@@ -35,11 +36,18 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 144
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        genre = data.genres[indexPath.row]
         performSegue(withIdentifier: "toGenreController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GenreController {
+            vc.genre = genre
+        }
     }
 
 

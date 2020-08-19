@@ -11,6 +11,9 @@ import UIKit
 class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let data = DataSet()
+    var genre: BookGenre!
+    var books: [Book]!
+    var book: Book!
         
     @IBOutlet weak var genresTable: UITableView!
     
@@ -20,18 +23,19 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         genresTable.delegate = self
         genresTable.dataSource = self
         // Do any additional setup after loading the view.
+        books = data.getBooks(forGenre: genre.genre.lowercased())
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.math.count
+        return books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = genresTable.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as? BookCell {
-            cell.bookAuthor.text = data.math[indexPath.row].author
-            cell.bookImage.image = UIImage(named: data.math[indexPath.row].imgName)
-            cell.bookNotes.text = data.math[indexPath.row].note
-            cell.bookTitle.text = data.math[indexPath.row].name
+            cell.bookAuthor.text = "Author: \(books[indexPath.row].author)"
+            cell.bookImage.image = UIImage(named: books[indexPath.row].imgName)
+            cell.bookNotes.text = "Notes: \(books[indexPath.row].note)"
+            cell.bookTitle.text = books[indexPath.row].name
             return cell
         }
         return UITableViewCell()
@@ -41,4 +45,14 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 150
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        book = books[indexPath.row]
+        performSegue(withIdentifier: "toBookController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? BookController {
+            vc.book = book
+        }
+    }
 }
