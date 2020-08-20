@@ -50,9 +50,16 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         performSegue(withIdentifier: "toBookController", sender: nil)
     }
     
+    @IBAction func addNewBookPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toAddBookController", sender: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? BookController {
             vc.book = book
+        } else if let vc = segue.destination as? NewBookController {
+            print("Got to add new book")
         }
     }
 }

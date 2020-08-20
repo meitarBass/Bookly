@@ -153,7 +153,11 @@
                         <viewLayoutGuide key="safeArea" id="ssa-5j-sx1"/>
                     </view>
                     <navigationItem key="navigationItem" id="zIi-a6-bKx">
-                        <barButtonItem key="rightBarButtonItem" title="New Book" id="bm3-1G-NhS"/>
+                        <barButtonItem key="rightBarButtonItem" title="New Book" id="bm3-1G-NhS">
+                            <connections>
+                                <action selector="addNewBookPressed:" destination="wbp-wI-ALm" id="KC0-dE-DYD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="genresTable" destination="Oei-V5-DQF" id="30Z-dh-lf3"/>
@@ -165,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="1886.9565217391305" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--New Book Controller-->
         <scene sceneID="hJj-A5-Oud">
             <objects>
-                <viewController id="9Ga-2f-BFW" sceneMemberID="viewController">
+                <viewController id="9Ga-2f-BFW" customClass="NewBookController" customModule="Bookly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wio-av-W13">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,6 +183,13 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="350" id="kYu-45-L78"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rS-LS-Cwf">
+                                <rect key="frame" x="80" y="104" width="254" height="350"/>
+                                <connections>
+                                    <action selector="pickImagePressed:" destination="tvF-U4-gN7" eventType="touchUpInside" id="O7Q-BQ-tyG"/>
+                                    <action selector="pickImagePressed:" destination="9Ga-2f-BFW" eventType="touchUpInside" id="s64-2p-7c1"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="SPt-5I-nwG">
                                 <rect key="frame" x="16" y="486" width="382" height="144"/>
                                 <subviews>
@@ -237,14 +248,23 @@
                         <constraints>
                             <constraint firstItem="Hsv-Jy-doe" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SPt-5I-nwG" secondAttribute="bottom" constant="16" id="0PN-1i-816"/>
                             <constraint firstItem="SPt-5I-nwG" firstAttribute="top" secondItem="UC8-eh-VvX" secondAttribute="bottom" constant="32" id="1gO-My-n3j"/>
+                            <constraint firstItem="5rS-LS-Cwf" firstAttribute="width" secondItem="UC8-eh-VvX" secondAttribute="width" id="33W-FA-EHT"/>
                             <constraint firstItem="SPt-5I-nwG" firstAttribute="leading" secondItem="Hsv-Jy-doe" secondAttribute="leading" constant="16" id="Dac-8E-bZc"/>
                             <constraint firstItem="UC8-eh-VvX" firstAttribute="top" secondItem="Hsv-Jy-doe" secondAttribute="top" constant="16" id="HG1-cn-spw"/>
+                            <constraint firstItem="5rS-LS-Cwf" firstAttribute="centerY" secondItem="UC8-eh-VvX" secondAttribute="centerY" id="IZP-fs-6qj"/>
                             <constraint firstItem="UC8-eh-VvX" firstAttribute="centerX" secondItem="wio-av-W13" secondAttribute="centerX" id="PNb-wu-q5X"/>
                             <constraint firstItem="Hsv-Jy-doe" firstAttribute="trailing" secondItem="SPt-5I-nwG" secondAttribute="trailing" constant="16" id="gzf-Ci-e07"/>
+                            <constraint firstItem="5rS-LS-Cwf" firstAttribute="height" secondItem="UC8-eh-VvX" secondAttribute="height" id="jAS-fb-9Oi"/>
+                            <constraint firstItem="5rS-LS-Cwf" firstAttribute="centerX" secondItem="UC8-eh-VvX" secondAttribute="centerX" id="ufc-OQ-muT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hsv-Jy-doe"/>
                     </view>
                     <navigationItem key="navigationItem" id="9Tk-tr-gS4"/>
+                    <connections>
+                        <outlet property="bookAuthorField" destination="CWs-uN-Qx7" id="KLb-fe-LmX"/>
+                        <outlet property="bookDescriptionField" destination="njM-O5-b3e" id="088-nb-sGN"/>
+                        <outlet property="bookNameField" destination="j5h-Qk-ZDR" id="Yut-sj-O66"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhY-H3-tdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="children1" translatesAutoresizingMaskIntoConstraints="NO" id="Ji6-NG-fwc">
-                                <rect key="frame" x="-47" y="104" width="508" height="350"/>
+                                <rect key="frame" x="80" y="104" width="254" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="350" id="hze-kF-X5F"/>
                                 </constraints>
@@ -335,6 +355,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hl3-1H-2Ov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="tvF-U4-gN7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2691" y="115"/>
         </scene>

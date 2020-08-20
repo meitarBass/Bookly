@@ -21,6 +21,7 @@
 		A9AD541624E9C7ED003AA446 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541524E9C7ED003AA446 /* DataSet.swift */; };
 		A9AD541824EB860F003AA446 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541724EB860F003AA446 /* BookController.swift */; };
 		A9AD541A24EC8218003AA446 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541924EC8218003AA446 /* CustomLabel.swift */; };
+		A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541B24EEEA8C003AA446 /* NewBookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A9AD541524E9C7ED003AA446 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		A9AD541724EB860F003AA446 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		A9AD541924EC8218003AA446 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		A9AD541B24EEEA8C003AA446 /* NewBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				A9AD53F824E8DCB6003AA446 /* MainController.swift */,
 				A9AD541324E9A27C003AA446 /* GenreController.swift */,
 				A9AD541724EB860F003AA446 /* BookController.swift */,
+				A9AD541B24EEEA8C003AA446 /* NewBookController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				A9AD541624E9C7ED003AA446 /* DataSet.swift in Sources */,
 				A9AD541224E99F66003AA446 /* BookCell.swift in Sources */,
 				A9AD53F724E8DCB6003AA446 /* SceneDelegate.swift in Sources */,
+				A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */,
 				A9AD541824EB860F003AA446 /* BookController.swift in Sources */,
 				A9AD541424E9A27C003AA446 /* GenreController.swift in Sources */,
 				A9AD540C24E8DE09003AA446 /* GenreCell.swift in Sources */,
