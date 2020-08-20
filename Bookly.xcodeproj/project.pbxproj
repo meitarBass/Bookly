@@ -22,6 +22,7 @@
 		A9AD541824EB860F003AA446 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541724EB860F003AA446 /* BookController.swift */; };
 		A9AD541A24EC8218003AA446 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541924EC8218003AA446 /* CustomLabel.swift */; };
 		A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541B24EEEA8C003AA446 /* NewBookController.swift */; };
+		A9AD541E24EF1E8F003AA446 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A9AD541724EB860F003AA446 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		A9AD541924EC8218003AA446 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		A9AD541B24EEEA8C003AA446 /* NewBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookController.swift; sourceTree = "<group>"; };
+		A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				A9AD540B24E8DE09003AA446 /* GenreCell.swift */,
 				A9AD541124E99F66003AA446 /* BookCell.swift */,
 				A9AD541924EC8218003AA446 /* CustomLabel.swift */,
+				A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AD541E24EF1E8F003AA446 /* CustomTextView.swift in Sources */,
 				A9AD53F924E8DCB6003AA446 /* MainController.swift in Sources */,
 				A9AD53F524E8DCB6003AA446 /* AppDelegate.swift in Sources */,
 				A9AD541A24EC8218003AA446 /* CustomLabel.swift in Sources */,

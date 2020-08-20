@@ -8,11 +8,15 @@
 
 import UIKit
 
-class NewBookController: UIViewController, UITextFieldDelegate {
+class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
 
     @IBOutlet weak var bookNameField: UITextField!
     @IBOutlet weak var bookAuthorField: UITextField!
-    @IBOutlet weak var bookDescriptionField: UITextField!
+    @IBOutlet weak var bookDescriptionField: UITextView!
+    @IBOutlet weak var bookImage: UIImageView!
+    
+    var image: UIImage!
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,30 +25,41 @@ class NewBookController: UIViewController, UITextFieldDelegate {
         bookNameField.delegate = self
         bookAuthorField.delegate = self
         bookDescriptionField.delegate = self
+        
+        bookDescriptionField.automaticallyAdjustsScrollIndicatorInsets = false
+        
+        imagePicker.delegate = self
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        var title = ""
-        var type = ""
-    
         if textField == bookNameField {
-            title = "Add Book"
-            type = "Book"
+            addNewLabel(title: "Add Book", type: "Book", textView: nil, field: textField)
         } else if textField == bookAuthorField {
-            title = "Add Author"
-            type = "Author"
-        } else if textField == bookDescriptionField {
-            title = "Add Description"
-            type = "Description"
+            addNewLabel(title: "Add Author", type: "Author", textView: nil, field: textField)
         }
-        print(addNewLabel(title: title, type: type, field: textField))
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == bookDescriptionField {
+            textView.isEditable = false
+            addNewLabel(title: "Add Description", type: "Description", textView: textView, field: nil)
+        }
     }
 
     @IBAction func pickImagePressed(_ sender: Any) {
         print("New Image")
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        } else if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
-    func addNewLabel(title: String, type: String, field: UITextField) {
+    func addNewLabel(title: String, type: String, textView: UITextView?, field: UITextField?) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
@@ -54,7 +69,12 @@ class NewBookController: UIViewController, UITextFieldDelegate {
         let action = UIAlertAction(title: "Add", style: .default, handler: { _ -> Void in
             let textField = alert.textFields![0] as UITextField
             if let message = textField.text {
-                field.text = message
+                if let view = textView {
+                    view.text = message
+                    view.isEditable = true
+                } else if let field = field {
+                    field.text = message
+                }
             }
         })
         
@@ -64,6 +84,13 @@ class NewBookController: UIViewController, UITextFieldDelegate {
         alert.addAction(cancel)
         
         present(alert, animated: false, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        self.dismiss(animated: true, completion: {
+            self.bookImage.image = self.image
+        })
     }
     
 }
