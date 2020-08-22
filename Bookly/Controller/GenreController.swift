@@ -26,19 +26,18 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         books = data.getBooks(forGenre: genre.genre.lowercased())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        genresTable.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = genresTable.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as? BookCell {
-            cell.bookAuthor.text = "Author: \(books[indexPath.row].author)"
-            cell.bookImage.image = UIImage(named: books[indexPath.row].imgName)
-            cell.bookNotes.text = "Notes: \(books[indexPath.row].note)"
-            cell.bookTitle.text = books[indexPath.row].name
-            return cell
-        }
-        return UITableViewCell()
+        let cell = genresTable.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell
+        cell.configureCell(book: books[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,7 +58,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         if let vc = segue.destination as? BookController {
             vc.book = book
         } else if let vc = segue.destination as? NewBookController {
-            print("Got to add new book")
+            vc.genre = genre
         }
     }
 }

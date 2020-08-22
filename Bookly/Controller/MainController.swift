@@ -20,6 +20,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         categoriesTable.delegate = self
         categoriesTable.dataSource = self
+        categoriesTable.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,12 +28,9 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = categoriesTable.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath) as? GenreCell {
-            cell.genreImgView.image = UIImage(named: data.genres[indexPath.row].imgName)
-            cell.genreTitle.text = data.genres[indexPath.row].genre
-            return cell
-        }
-        return UITableViewCell()
+        let cell = categoriesTable.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath) as! GenreCell
+        cell.configureCell(genre: data.genres[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -17,6 +17,7 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     
     var image: UIImage!
     var imagePicker = UIImagePickerController()
+    var genre: BookGenre!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,13 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = false
             present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func doneAddingBook(_ sender: Any) {
+        print("Caio adios I'm done")
+        if let _ = genre {
+            let _ = Book(name: bookNameField.text!, desciprtion: bookDescriptionField.text!, note: "", author: bookAuthorField.text!, imgName: "")
         }
     }
     

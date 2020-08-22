@@ -23,6 +23,7 @@
 		A9AD541A24EC8218003AA446 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541924EC8218003AA446 /* CustomLabel.swift */; };
 		A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541B24EEEA8C003AA446 /* NewBookController.swift */; };
 		A9AD541E24EF1E8F003AA446 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */; };
+		A9AD542024F13C44003AA446 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541F24F13C43003AA446 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		A9AD541924EC8218003AA446 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		A9AD541B24EEEA8C003AA446 /* NewBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookController.swift; sourceTree = "<group>"; };
 		A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		A9AD541F24F13C43003AA446 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				A9AD53FD24E8DCB8003AA446 /* Assets.xcassets */,
 				A9AD53FF24E8DCB8003AA446 /* LaunchScreen.storyboard */,
 				A9AD540224E8DCB8003AA446 /* Info.plist */,
+				A9AD541F24F13C43003AA446 /* Constants.swift */,
 			);
 			path = Bookly;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */,
 				A9AD541824EB860F003AA446 /* BookController.swift in Sources */,
 				A9AD541424E9A27C003AA446 /* GenreController.swift in Sources */,
+				A9AD542024F13C44003AA446 /* Constants.swift in Sources */,
 				A9AD540C24E8DE09003AA446 /* GenreCell.swift in Sources */,
 				A9AD540E24E99CBC003AA446 /* BookGenre.swift in Sources */,
 			);

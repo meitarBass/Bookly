@@ -24,13 +24,12 @@ class BookController: UIViewController {
 
         bookImage.image = UIImage(named: book.imgName)
         bookTitle.text = book.name
-        bookAuthor.text = "Author: \(book.author)"
-        bookNotes.text = "Notes: \(book.note)"
-        bookDesciprtion.text = "Description: \(book.desciprtion)"
+        bookAuthor.text = AUTHOR + book.author
+        bookNotes.text = NOTES + book.note
+        bookDesciprtion.text = DESCRIPTION + book.desciprtion
     }
     
     @IBAction func addNotePressed(_ sender: Any) {
-        print("add note")
         var alert = UIAlertController(title: "Add Note", message: "", preferredStyle: .alert)
         alert = setAlert(alert: alert)
         self.present(alert, animated: true, completion: nil)

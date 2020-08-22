@@ -17,4 +17,9 @@ class GenreCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureCell(genre: BookGenre) {
+        genreImgView.image = UIImage(named: genre.imgName)
+        genreTitle.text = genre.genre
+    }
 }

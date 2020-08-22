@@ -17,7 +17,7 @@ class DataSet {
     ]
 
 
-    let math = [
+    var math = [
         Book(name: "Weapons of Math Destruction", desciprtion: "We live in the age of the algorithm. Increasingly, the decisions that affect our lives - where we go to school, whether we get a loan, how much we pay for insurance - are being made not by humans, but by mathematical models. In theory, this should lead to greater fairness: everyone is judged according to the same rules, and bias is eliminated. ", note: "", author: "Cathy O'neil",imgName: "math1"),
         Book(name: "Hello World", desciprtion: "Hannah Fry takes us on a tour of the good, the bad and the downright ugly of the algorithms that surround us. In Hello World she lifts the lid on their inner workings, demonstrates their power, exposes their limitations, and examines whether they really are an improvement on the humans they are replacing.", note: "", author: "Hannah Fry", imgName: "math2"),
         Book(name: "The Math Book", desciprtion: "This is an accessible, fascinating book that unravels the mysteries and beauty of mathematics. It covers 250 milestones in mathematical history. ", note: "", author: "Clifford A. Pickover", imgName: "math3"),
@@ -29,7 +29,7 @@ class DataSet {
         Book(name: "See Inside Maths", desciprtion: " As well as over 50 embedded flaps to lift, each page includes a host of puzzles and games for readers to test their newfound maths skills on, making the book an interactive and informative experience. It is illustrated in a fun and accessible style by Colin King. ", note: "", author: "Colin King", imgName: "math9")
     ]
 
-    let fairytale = [
+    var fairytale = [
         Book(name: "Peppa Pig: Fairy Tale Little Library", desciprtion: "The perfect book collection for the littlest readers! ", note: "", author: "Peppa Pig", imgName: "fairytale1"),
         Book(name: "Peep Inside a Fairy Tale Cinderella", desciprtion: "This classic fairytale is given a new lease of life with the exquisite illustrations and elegant flaps and peep-through holes. The second title in a new series which takes the format of the bestselling 'Peep Inside' non-fiction series and applies it to much-loved fairy tales. Likely to become firm favourite for little ones and sure to have children asking before bedtime.", note: "", author: " Anna Milbourne", imgName: "fairytale2"),
         Book(name: "Peep Inside a Fairy Tale Little Red Riding Hood", desciprtion: "Journey into the woods with Little Red Riding Hood, peeping through the trees, lifting flaps to see what's beneath things, and watching granny's cottage emerge with each turn of the page. Delicate cutaways and holes to peep through are layered on top of each other to create a magical filigree effect, drawing children in to the story.", note: "", author: "Júlia Sardà Portabella", imgName: "fairytale3"),
@@ -40,7 +40,7 @@ class DataSet {
         Book(name: "Peep Inside A Fairy Tale Sleeping Beauty", desciprtion: "Cursed at birth, Sleeping Beauty is destined to fall asleep for a hundred years on her sixteenth birthday.", note: "", author: "Colin King", imgName: "fairytale8")
     ]
     
-    let fantasy = [
+    var fantasy = [
         Book(name: "Geronimo Stilton and the Kingdom of Fantasy", desciprtion: "Join Geronimo for his biggest, most fabumouse adventure yet! Dragons, mermaids, and much, much more await readers in this very special edition! ", note: "", author: "Geronimo Stilton", imgName: "fantasy1"),
         Book(name: "Final Fantasy Xv: The Dawn Of The Future", desciprtion: "A volume of all-new, character-driven stories expanding on the world of the hit video game Final Fantasy XV.", note: "", author: "Stephen Kohler", imgName: "fantasy2"),
         Book(name: "Fantasy Lover", desciprtion: "Dear Reader, Being trapped in a bedroom with a woman is a grand thing. Being trapped in hundreds of bedrooms over two thousand years isn't. ", note: "", author: "Sherrilyn Kenyon", imgName: "fantasy3"),
@@ -52,11 +52,11 @@ class DataSet {
         Book(name: "Star Wars: Armada", desciprtion: "Dont wait until its too late to intensify your firepower. The enemy fleet is approaching firing range, and squadrons of starfighters are racing into position.", note: "", author: "Fantasy Flight Games", imgName: "fantasy9")
     ]
     
-    let children = [
+    var children = [
         Book(name: "Miss Peregrine's Home For Peculiar Children", desciprtion: "A mysterious island. An abandoned orphanage. And a strange collection of very curious photographs.", note: "", author: "Ransom Riggs", imgName: "children1"),
         Book(name: "The World's Worst Children", desciprtion: "Are you ready to meet the World's Worst Children? Five beastly boys and five gruesome girls!", note: "", author: "Tony Ross", imgName: "children2"),
         Book(name: "Children of Blood and Bone", desciprtion: "Winner of the Tonight Show Summer Reads with Jimmy Fallon.", note: "", author: "Tomi Adeyemi", imgName: "children3"),
-        Book(name: "The World's Worst Children 2", desciprtion: "The brilliant follow-up to David Walliams' bestseller The World's Worst Children! Ten more stories about a brand new gang of hilariously horrible kids from everyone's favourite children's author, illustrated in glorious full colour by Tony Ross.", note: "", author: "Tony Ross", imgName: "children4"),
+        Book(name: "The World's Worst Children 2", desciprtion: "The brilliant follow-up to David Walliams' bestseller The World's Worst Children! Ten more stories about a brand new gang of hilariously horrible kids from everyone's favourite children's author, illustrated in glorious full colour by Tony Ross.", note: "oirifrmkrf rkfmormfkmrl frmfmklrmlkfmrflr mfklrklfmrklmflkrmf kmflrmklmfkl rlkmlkfmrklm rlflkmwkomfmewf klemrfglmsrgmermglkmelfr ef", author: "Tony Ross", imgName: "children4"),
         Book(name: "Children of Time", desciprtion: "Winner of the 30th anniversary Arthur C. Clarke Award for Best Novel.", note: "", author: "Adrian Tchaikovsky", imgName: "children5")
     ]
     
