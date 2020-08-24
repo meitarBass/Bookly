@@ -8,7 +8,14 @@
 
 import Foundation
 
-let AUTHOR = "Author: "
-let DESCRIPTION = "Description: "
-let NOTES = "Notes: "
+struct CellIdentifiers {
+    static let BookCell = "bookCell"
+    static let GenreCell = "genreCell"
+}
+
+struct SegueIdentifiers {
+    static let GenreSegue = "toGenreController"
+    static let BookSegue = "toBookController"
+    static let NewBookSegue = "toNewBookController"
+}
 

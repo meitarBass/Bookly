@@ -61,10 +61,9 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
     
     @IBAction func doneAddingBook(_ sender: Any) {
-        print("Caio adios I'm done")
-        if let _ = genre {
-            let _ = Book(name: bookNameField.text!, desciprtion: bookDescriptionField.text!, note: "", author: bookAuthorField.text!, imgName: "")
-        }
+        let newBook = (Book(name: bookNameField.text!, desciprtion: bookDescriptionField.text!, note: "", author: bookAuthorField.text!, imgName: ""))
+        let ds = DataSet()
+        ds.addBook(genre: genre, book: newBook)
     }
     
     func addNewLabel(title: String, type: String, textView: UITextView?, field: UITextField?) {

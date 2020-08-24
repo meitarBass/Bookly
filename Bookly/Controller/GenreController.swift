@@ -27,7 +27,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        genresTable.reloadData()
+        print(data.fantasy)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,7 +35,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = genresTable.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell
+        let cell = genresTable.dequeueReusableCell(withIdentifier: CellIdentifiers.BookCell, for: indexPath) as! BookCell
         cell.configureCell(book: books[indexPath.row])
         return cell
     }
@@ -46,11 +46,11 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         book = books[indexPath.row]
-        performSegue(withIdentifier: "toBookController", sender: nil)
+        performSegue(withIdentifier: SegueIdentifiers.BookSegue, sender: nil)
     }
     
     @IBAction func addNewBookPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toAddBookController", sender: nil)
+        performSegue(withIdentifier: SegueIdentifiers.NewBookSegue, sender: nil)
     }
     
     

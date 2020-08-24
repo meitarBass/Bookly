@@ -24,9 +24,9 @@ class BookController: UIViewController {
 
         bookImage.image = UIImage(named: book.imgName)
         bookTitle.text = book.name
-        bookAuthor.text = AUTHOR + book.author
-        bookNotes.text = NOTES + book.note
-        bookDesciprtion.text = DESCRIPTION + book.desciprtion
+        bookAuthor.text = "Author: \(book.author)"
+        bookNotes.text = "Notes: \(book.note)"
+        bookDesciprtion.text = "Description: \(book.desciprtion)"
     }
     
     @IBAction func addNotePressed(_ sender: Any) {

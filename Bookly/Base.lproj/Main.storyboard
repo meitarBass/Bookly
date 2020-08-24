@@ -33,7 +33,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="children's" translatesAutoresizingMaskIntoConstraints="NO" id="8Dr-yf-Nno">
-                                                    <rect key="frame" x="8" y="8" width="398" height="128.00000000000003"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="128"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -162,7 +162,7 @@
                     <connections>
                         <outlet property="genresTable" destination="Oei-V5-DQF" id="30Z-dh-lf3"/>
                         <segue destination="cwf-Zd-BEN" kind="show" identifier="toBookController" id="YFZ-Xe-Z6E"/>
-                        <segue destination="9Ga-2f-BFW" kind="show" identifier="toAddBookController" id="MvV-GA-mE1"/>
+                        <segue destination="9Ga-2f-BFW" kind="show" identifier="toNewBookController" id="MvV-GA-mE1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t45-BR-Lxc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

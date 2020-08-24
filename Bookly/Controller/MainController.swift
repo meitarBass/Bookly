@@ -28,7 +28,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = categoriesTable.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath) as! GenreCell
+        let cell = categoriesTable.dequeueReusableCell(withIdentifier: CellIdentifiers.GenreCell, for: indexPath) as! GenreCell
         cell.configureCell(genre: data.genres[indexPath.row])
         return cell
     }
@@ -39,7 +39,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         genre = data.genres[indexPath.row]
-        performSegue(withIdentifier: "toGenreController", sender: nil)
+        performSegue(withIdentifier: SegueIdentifiers.GenreSegue, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

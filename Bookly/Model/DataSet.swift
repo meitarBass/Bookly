@@ -68,11 +68,26 @@ class DataSet {
             return math
         case "fantasy":
             print("Fantasy")
-            return fantasy  
+            return fantasy
         case "children's":
             return children
         default:
             return math
+        }
+    }
+    
+    func addBook(genre: BookGenre, book: Book) {
+        switch genre.genre.lowercased() {
+        case "fairytale":
+            self.fairytale.append(book)
+        case "math":
+            self.math.append(book)
+        case "fantasy":
+            self.fantasy.append(book)
+        case "children's":
+            self.children.append(book)
+        default:
+            return
         }
     }
 }
