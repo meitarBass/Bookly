@@ -14,7 +14,16 @@ class DataSet {
         BookGenre(genre: "Math", imgName: "math"),
         BookGenre(genre: "Fairytale", imgName: "fairytale"),
         BookGenre(genre: "Fantasy", imgName: "fantasy"),
-        BookGenre(genre: "Children's", imgName: "children's")
+        BookGenre(genre: "Children's", imgName: "children's"),
+        BookGenre(genre: "Comics", imgName: "comics"),
+        BookGenre(genre: "Biography", imgName: "biography"),
+        BookGenre(genre: "Romance", imgName: "romance"),
+        BookGenre(genre: "History", imgName: "history"),
+        BookGenre(genre: "Self Help", imgName: "self help"),
+        BookGenre(genre: "Cook Book", imgName: "cook book"),
+        BookGenre(genre: "Poetry", imgName: "poetry"),
+        BookGenre(genre: "Crime", imgName: "crime")
+        
     ]
     
     let db = Firestore.firestore()

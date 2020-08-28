@@ -32,11 +32,11 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         // Do any additional setup after loading the view.
         
         ds.downloadBooks(byGenre: genre.genre) { (books, ids) in
-            self.retrievedBooks = books
             self.bookID = ids
             
             for book in books {
                 self.ds.downloadImage(path: book.imgName) { (image) in
+                    self.retrievedBooks.append(book)
                     self.retrievedImages.append(image)
                     self.genresTable.reloadData()
                 }
@@ -61,9 +61,6 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         passedIndex = indexPath.row
-        book = retrievedBooks[passedIndex]
-        bookImage = retrievedImages[passedIndex]
-        id = bookID[passedIndex]
         performSegue(withIdentifier: SegueIdentifiers.BookSegue, sender: nil)
     }
     
@@ -84,9 +81,9 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? BookController {
-            vc.book = book
-            vc.image = bookImage
-            vc.bookID = id
+            vc.book = retrievedBooks[passedIndex]
+            vc.image = retrievedImages[passedIndex]
+            vc.bookID = bookID[passedIndex]
             vc.noteDelegate = self
         } else if let vc = segue.destination as? NewBookController {
             vc.genre = genre
