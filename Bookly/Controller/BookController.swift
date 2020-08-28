@@ -19,6 +19,9 @@ class BookController: UIViewController {
     let data = DataSet()
     var book: Book!
     var image: UIImage!
+    var bookID: String!
+    
+    var noteDelegate: GetNote?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +51,8 @@ class BookController: UIViewController {
             let firstTextField = alert.textFields![0] as UITextField
             if let note = firstTextField.text {
                 self.bookNotes.text = "Notes: \(note)"
+                self.noteDelegate?.getNote(note: note)
+                self.data.addNote(byBookID: self.bookID, note: note)
             }
         })
         

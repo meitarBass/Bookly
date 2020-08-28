@@ -8,15 +8,19 @@
 
 import UIKit
 
-class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSource, GetNote, GetBook {
     
-    let data = DataSet()
+    let ds = DataSet()
     var genre: BookGenre!
     var book: Book!
+    var id: String!
     var bookImage: UIImage!
+    
+    var passedIndex: Int!
     
     var retrievedBooks = [Book]()
     var retrievedImages = [UIImage]()
+    var bookID = [String]()
         
     @IBOutlet weak var genresTable: UITableView!
     
@@ -27,10 +31,12 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         genresTable.dataSource = self
         // Do any additional setup after loading the view.
         
-        data.downloadBooks(byGenre: "Math") { (books) in
+        ds.downloadBooks(byGenre: genre.genre) { (books, ids) in
+            self.retrievedBooks = books
+            self.bookID = ids
+            
             for book in books {
-                self.data.downloadImage(path: book.imgName) { (image) in
-                    self.retrievedBooks.append(book)
+                self.ds.downloadImage(path: book.imgName) { (image) in
                     self.retrievedImages.append(image)
                     self.genresTable.reloadData()
                 }
@@ -54,8 +60,10 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        book = retrievedBooks[indexPath.row]
-        bookImage = retrievedImages[indexPath.row]
+        passedIndex = indexPath.row
+        book = retrievedBooks[passedIndex]
+        bookImage = retrievedImages[passedIndex]
+        id = bookID[passedIndex]
         performSegue(withIdentifier: SegueIdentifiers.BookSegue, sender: nil)
     }
     
@@ -63,13 +71,26 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         performSegue(withIdentifier: SegueIdentifiers.NewBookSegue, sender: nil)
     }
     
+    func getNote(note: String) {
+        retrievedBooks[passedIndex].note = note
+        genresTable.reloadData()
+    }
+    
+    func getBook(book: Book, image: UIImage) {
+        retrievedBooks.append(book)
+        retrievedImages.append(image)
+        genresTable.reloadData()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? BookController {
             vc.book = book
             vc.image = bookImage
+            vc.bookID = id
+            vc.noteDelegate = self
         } else if let vc = segue.destination as? NewBookController {
             vc.genre = genre
+            vc.bookDelegate = self
         }
     }
 }

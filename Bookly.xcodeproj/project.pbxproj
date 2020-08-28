@@ -26,6 +26,7 @@
 		A9AD541E24EF1E8F003AA446 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */; };
 		A9AD542024F13C44003AA446 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541F24F13C43003AA446 /* Constants.swift */; };
 		A9AD542224F3EA6A003AA446 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */; };
+		A9AD542424F91298003AA446 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD542324F91297003AA446 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		A9AD541F24F13C43003AA446 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9AD542324F91297003AA446 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		BC05892FF319173DB11A91F5 /* Pods_Bookly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C996BCEC27602347B716909E /* Pods-Bookly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookly.release.xcconfig"; path = "Target Support Files/Pods-Bookly/Pods-Bookly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 				A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */,
 				A9AD540224E8DCB8003AA446 /* Info.plist */,
 				A9AD541F24F13C43003AA446 /* Constants.swift */,
+				A9AD542324F91297003AA446 /* Protocols.swift */,
 			);
 			path = Bookly;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AD542424F91298003AA446 /* Protocols.swift in Sources */,
 				A9AD541E24EF1E8F003AA446 /* CustomTextView.swift in Sources */,
 				A9AD53F924E8DCB6003AA446 /* MainController.swift in Sources */,
 				A9AD53F524E8DCB6003AA446 /* AppDelegate.swift in Sources */,

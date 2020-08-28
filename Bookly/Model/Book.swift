@@ -12,7 +12,7 @@ struct Book {
     
     let name: String
     let desciprtion: String
-    let note: String
+    var note: String
     let author: String
     var imgName: String
     let bookGenre: String
