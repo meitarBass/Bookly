@@ -18,15 +18,16 @@ class BookController: UIViewController {
     
     let data = DataSet()
     var book: Book!
+    var image: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        bookImage.image = UIImage(named: book.imgName)
+        bookImage.image = image
         bookTitle.text = book.name
         bookAuthor.text = "Author: \(book.author)"
         bookNotes.text = "Notes: \(book.note)"
         bookDesciprtion.text = "Description: \(book.desciprtion)"
+
     }
     
     @IBAction func addNotePressed(_ sender: Any) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
 
@@ -17,7 +18,11 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     
     var image: UIImage!
     var imagePicker = UIImagePickerController()
+    var imagePath: URL!
     var genre: BookGenre!
+    
+    let db = Firestore.firestore()
+    var ds = DataSet()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,13 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         bookDescriptionField.automaticallyAdjustsScrollIndicatorInsets = false
         
         imagePicker.delegate = self
+        
+//        getBooksByGenre(genre: "Math")
+        ds.downloadBooks(byGenre: "Math") { (books) in
+            for book in books {
+                print(book.name)
+            }
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -61,9 +73,8 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
     
     @IBAction func doneAddingBook(_ sender: Any) {
-        let newBook = (Book(name: bookNameField.text!, desciprtion: bookDescriptionField.text!, note: "", author: bookAuthorField.text!, imgName: ""))
-        let ds = DataSet()
-        ds.addBook(genre: genre, book: newBook)
+        let newBook = (Book(name: bookNameField.text!, desciprtion: bookDescriptionField.text!, note: "", author: bookAuthorField.text!, imgName: "", bookGenre: genre.genre))
+        uploadImage(image: bookImage.image!, book: newBook)
     }
     
     func addNewLabel(title: String, type: String, textView: UITextView?, field: UITextField?) {
@@ -94,10 +105,65 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        self.dismiss(animated: true, completion: {
-            self.bookImage.image = self.image
-        })
+        
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.dismiss(animated: true, completion: {
+                self.bookImage.image = pickedImage
+            })
+        }
+    }
+    
+    func addNewBook(book: Book, imgPath: String) {
+        // Add a new document with a generated ID
+        db.collection("Books").document().setData([
+            "Name": book.name,
+            "Author": book.author,
+            "Description": book.desciprtion,
+            "Note": book.note,
+            "Genre": book.bookGenre,
+            "imgID": imgPath
+        ]){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
+    
+    func getBooksByGenre(genre: String) {
+        let booksRef = db.collection("Books")
+        
+        booksRef.whereField("Genre", isEqualTo: genre).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting docuemnts: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
+    
+    func uploadImage(image: UIImage, book: Book) {
+        let storageRef = Storage.storage().reference()
+        
+        let data = image.jpegData(compressionQuality: 0.75)! as NSData
+        
+        let filePathToSave = UUID().uuidString
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        
+        storageRef.child("Books").child(filePathToSave).putData(data as Data, metadata: metadata) { (metaData, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            } else {
+                print(metaData?.name)
+                self.addNewBook(book: book, imgPath: (metaData?.name)!)
+            }
+        }
     }
     
 }

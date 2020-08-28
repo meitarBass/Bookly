@@ -12,8 +12,11 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     let data = DataSet()
     var genre: BookGenre!
-    var books: [Book]!
     var book: Book!
+    var bookImage: UIImage!
+    
+    var retrievedBooks = [Book]()
+    var retrievedImages = [UIImage]()
         
     @IBOutlet weak var genresTable: UITableView!
     
@@ -23,20 +26,26 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         genresTable.delegate = self
         genresTable.dataSource = self
         // Do any additional setup after loading the view.
-        books = data.getBooks(forGenre: genre.genre.lowercased())
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print(data.fantasy)
+        
+        data.downloadBooks(byGenre: "Math") { (books) in
+            for book in books {
+                self.data.downloadImage(path: book.imgName) { (image) in
+                    self.retrievedBooks.append(book)
+                    self.retrievedImages.append(image)
+                    self.genresTable.reloadData()
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books.count
+        return retrievedBooks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = genresTable.dequeueReusableCell(withIdentifier: CellIdentifiers.BookCell, for: indexPath) as! BookCell
-        cell.configureCell(book: books[indexPath.row])
+        cell.configureCell(book: retrievedBooks[indexPath.row])
+        cell.setImage(imageName: retrievedImages[indexPath.row])
         return cell
     }
     
@@ -45,7 +54,8 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        book = books[indexPath.row]
+        book = retrievedBooks[indexPath.row]
+        bookImage = retrievedImages[indexPath.row]
         performSegue(withIdentifier: SegueIdentifiers.BookSegue, sender: nil)
     }
     
@@ -57,6 +67,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? BookController {
             vc.book = book
+            vc.image = bookImage
         } else if let vc = segue.destination as? NewBookController {
             vc.genre = genre
         }

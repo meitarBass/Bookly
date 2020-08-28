@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491854974C210F64F2E860E0 /* Pods_Bookly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC05892FF319173DB11A91F5 /* Pods_Bookly.framework */; };
 		A9AD53F524E8DCB6003AA446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD53F424E8DCB6003AA446 /* AppDelegate.swift */; };
 		A9AD53F724E8DCB6003AA446 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD53F624E8DCB6003AA446 /* SceneDelegate.swift */; };
 		A9AD53F924E8DCB6003AA446 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD53F824E8DCB6003AA446 /* MainController.swift */; };
@@ -24,9 +25,11 @@
 		A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541B24EEEA8C003AA446 /* NewBookController.swift */; };
 		A9AD541E24EF1E8F003AA446 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */; };
 		A9AD542024F13C44003AA446 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD541F24F13C43003AA446 /* Constants.swift */; };
+		A9AD542224F3EA6A003AA446 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		322B67CCCBC3F9AC4BA5B246 /* Pods-Bookly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookly.debug.xcconfig"; path = "Target Support Files/Pods-Bookly/Pods-Bookly.debug.xcconfig"; sourceTree = "<group>"; };
 		A9AD53F124E8DCB6003AA446 /* Bookly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AD53F424E8DCB6003AA446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9AD53F624E8DCB6003AA446 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +49,9 @@
 		A9AD541B24EEEA8C003AA446 /* NewBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookController.swift; sourceTree = "<group>"; };
 		A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		A9AD541F24F13C43003AA446 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC05892FF319173DB11A91F5 /* Pods_Bookly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C996BCEC27602347B716909E /* Pods-Bookly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookly.release.xcconfig"; path = "Target Support Files/Pods-Bookly/Pods-Bookly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +59,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491854974C210F64F2E860E0 /* Pods_Bookly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		035CA6CADD5E9D5D1AB78197 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC05892FF319173DB11A91F5 /* Pods_Bookly.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		386039461F65A8BDD9AF1ED8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				322B67CCCBC3F9AC4BA5B246 /* Pods-Bookly.debug.xcconfig */,
+				C996BCEC27602347B716909E /* Pods-Bookly.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A9AD53E824E8DCB6003AA446 = {
 			isa = PBXGroup;
 			children = (
 				A9AD53F324E8DCB6003AA446 /* Bookly */,
 				A9AD53F224E8DCB6003AA446 /* Products */,
+				386039461F65A8BDD9AF1ED8 /* Pods */,
+				035CA6CADD5E9D5D1AB78197 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +112,7 @@
 				A9AD53FA24E8DCB6003AA446 /* Main.storyboard */,
 				A9AD53FD24E8DCB8003AA446 /* Assets.xcassets */,
 				A9AD53FF24E8DCB8003AA446 /* LaunchScreen.storyboard */,
+				A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */,
 				A9AD540224E8DCB8003AA446 /* Info.plist */,
 				A9AD541F24F13C43003AA446 /* Constants.swift */,
 			);
@@ -131,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9AD540524E8DCB8003AA446 /* Build configuration list for PBXNativeTarget "Bookly" */;
 			buildPhases = (
+				FA306D7DB0ADA1175AED7BF5 /* [CP] Check Pods Manifest.lock */,
 				A9AD53ED24E8DCB6003AA446 /* Sources */,
 				A9AD53EE24E8DCB6003AA446 /* Frameworks */,
 				A9AD53EF24E8DCB6003AA446 /* Resources */,
+				EDAB78AAEDD3E4D59CF06E43 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,12 +212,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9AD540124E8DCB8003AA446 /* LaunchScreen.storyboard in Resources */,
+				A9AD542224F3EA6A003AA446 /* GoogleService-Info.plist in Resources */,
 				A9AD53FE24E8DCB8003AA446 /* Assets.xcassets in Resources */,
 				A9AD53FC24E8DCB6003AA446 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EDAB78AAEDD3E4D59CF06E43 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookly/Pods-Bookly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookly/Pods-Bookly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bookly/Pods-Bookly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA306D7DB0ADA1175AED7BF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookly-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9AD53ED24E8DCB6003AA446 /* Sources */ = {
@@ -350,6 +422,7 @@
 		};
 		A9AD540624E8DCB8003AA446 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 322B67CCCBC3F9AC4BA5B246 /* Pods-Bookly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -368,6 +441,7 @@
 		};
 		A9AD540724E8DCB8003AA446 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C996BCEC27602347B716909E /* Pods-Bookly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

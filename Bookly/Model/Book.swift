@@ -14,6 +14,7 @@ struct Book {
     let desciprtion: String
     let note: String
     let author: String
-    let imgName: String
+    var imgName: String
+    let bookGenre: String
     
 }

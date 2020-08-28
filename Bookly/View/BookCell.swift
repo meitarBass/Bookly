@@ -22,8 +22,12 @@ class BookCell: UITableViewCell {
     
     func configureCell(book: Book) {
         bookAuthor.text = "Author: \(book.author)"
-        bookImage.image = UIImage(named: book.imgName)
+//        bookImage.image = UIImage(named: book.imgName)
         bookNotes.text = "Notes: \(book.note)"
         bookTitle.text = "\(book.name)"
+    }
+    
+    func setImage(imageName: UIImage) {
+        bookImage.image = imageName
     }
 }
