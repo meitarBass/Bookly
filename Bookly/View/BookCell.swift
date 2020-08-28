@@ -24,7 +24,7 @@ class BookCell: UITableViewCell {
         bookAuthor.text = "Author: \(book.author)"
 //        bookImage.image = UIImage(named: book.imgName)
         bookNotes.text = "Notes: \(book.note)"
-        bookTitle.text = "\(book.name)"
+        bookTitle.text = "Title: \(book.name)"
     }
     
     func setImage(imageName: UIImage) {

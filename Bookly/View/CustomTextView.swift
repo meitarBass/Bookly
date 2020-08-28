@@ -13,7 +13,8 @@ class CustomTextView: UITextView {
     override func awakeFromNib() {
         layer.borderWidth = 1
         layer.cornerRadius = 3
-        layer.borderColor = #colorLiteral(red: 0.09712652117, green: 0.09715057164, blue: 0.09712334722, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.662745098, alpha: 1)
+        textColor = #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.662745098, alpha: 1)
     }
     
 }

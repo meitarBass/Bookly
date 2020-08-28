@@ -17,7 +17,7 @@ class CustomLabel: UILabel {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         layer.borderWidth = 1
-        layer.borderColor = UIColor.black.cgColor
+        textColor = #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.662745098, alpha: 1)
     }
 
 }
