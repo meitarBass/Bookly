@@ -25,6 +25,8 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     var ds = DataSet()
     var bookDelegate: GetBook?
     
+    var activityIndicator: CustomActivityIndicator!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,9 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         bookDescriptionField.automaticallyAdjustsScrollIndicatorInsets = false
         
         imagePicker.delegate = self
+        
+        title = "New Book"
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter-Bold", size: 20)!]
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -54,11 +59,29 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
 
     @IBAction func pickImagePressed(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) &&
+            UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            let alert = UIAlertController(title: "Camera or Gallery", message: "", preferredStyle: .alert)
+            let camera = UIAlertAction(title: "Camera", style: .default) { _ in
+                self.imagePicker.sourceType = .camera
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+            let gallery = UIAlertAction(title: "Gallery", style: .default) { _ in
+                self.imagePicker.sourceType = .savedPhotosAlbum
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+                
+            self.imagePicker.allowsEditing = false
+            
+            
+            alert.addAction(camera)
+            alert.addAction(gallery)
+            
+            present(alert, animated: false, completion: nil)
+        }
         print("New Image")
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-            imagePicker.allowsEditing = false
-            present(imagePicker, animated: true, completion: nil)
+            
         } else if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = false
@@ -67,8 +90,15 @@ class NewBookController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
     
     @IBAction func doneAddingBook(_ sender: Any) {
+        self.activityIndicator = CustomActivityIndicator(frame: CGRect(x: self.view.frame.width / 2 - 25, y: self.view.frame.height / 2 - 25, width: 50, height: 50))
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
+        
         let newBook = (Book(name: bookNameField.text!, desciprtion: bookDescriptionField.text!, note: "", author: bookAuthorField.text!, imgName: "", bookGenre: genre.genre))
-        ds.uploadImage(image: bookImage.image!, book: newBook)
+        ds.uploadImage(image: bookImage.image!, book: newBook) {
+            self.ds.dataUpdatedSuccessfuly(happyMessage: "Added Book Successfuly")
+            self.activityIndicator.stopAnimating()
+        }
         bookDelegate?.getBook(book: newBook, image: bookImage.image!)
     }
     

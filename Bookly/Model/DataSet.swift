@@ -8,8 +8,11 @@
 
 import Foundation
 import Firebase
+import SCLAlertView
 
 class DataSet {
+    
+    
     let genres = [
         BookGenre(genre: "Math", imgName: "math"),
         BookGenre(genre: "Fairytale", imgName: "fairytale"),
@@ -29,21 +32,7 @@ class DataSet {
     let db = Firestore.firestore()
     let storageRef = Storage.storage().reference()
     
-    func getBooksByGenre(genre: String) {
-        let booksRef = db.collection("Books")
-        
-        booksRef.whereField("Genre", isEqualTo: genre).getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting docuemnts: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
-    }
-    
-    func uploadImage(image: UIImage, book: Book) {
+    func uploadImage(image: UIImage, book: Book, completion: @escaping () -> Void) {
         let storageRef = Storage.storage().reference()
         
         let data = image.jpegData(compressionQuality: 0.75)! as NSData
@@ -55,10 +44,11 @@ class DataSet {
         
         storageRef.child("Books").child(filePathToSave).putData(data as Data, metadata: metadata) { (metaData, err) in
             if let err = err {
-                print(err.localizedDescription)
+                self.requestFailed(error: err.localizedDescription)
                 return
             } else {
                 self.addNewBook(book: book, imgPath: (metaData?.name)!)
+                completion()
             }
         }
     }
@@ -74,6 +64,7 @@ class DataSet {
             "imgID": imgPath
         ]){ err in
             if let err = err {
+                self.requestFailed(error: err.localizedDescription)
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
@@ -85,10 +76,10 @@ class DataSet {
         let booksRef = db.collection("Books")
         var retrievedBooks = [Book]()
         var booksID = [String]()
-        
+            
         booksRef.whereField("Genre", isEqualTo: genre).getDocuments { (querySnapshot, err) in
             if let err = err {
-                print("Error getting docuemnts: \(err)")
+                self.requestFailed(error: err.localizedDescription)
                 return
             } else {
                 for document in querySnapshot!.documents {
@@ -115,7 +106,7 @@ class DataSet {
         let imgRef = storageRef.child("Books").child(path)
         imgRef.getData(maxSize: (10 * 1024 * 1024)) { (data, err) in
             if let err = err {
-                print(err)
+                self.requestFailed(error: err.localizedDescription)
             } else {
                 if let data = data {
                     if let myImage = UIImage(data: data) {
@@ -135,10 +126,20 @@ class DataSet {
             if let err = err {
                 debugPrint("err \(err)")
             } else {
+                self.dataUpdatedSuccessfuly(happyMessage: "Your note was saved!")
                 print("Updated successfully")
             }
         }
     }
+    
+    
+    func requestFailed(error: String) {
+        SCLAlertView().showError(error, subTitle: "Please try again later")
+    }
+    
+    func dataUpdatedSuccessfuly(happyMessage message: String) {
+        SCLAlertView().showSuccess("Data added successfuly", subTitle: message)
+    }
+    
+    
 }
-
-

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		491854974C210F64F2E860E0 /* Pods_Bookly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC05892FF319173DB11A91F5 /* Pods_Bookly.framework */; };
+		A928DE7C24F9B61700E86555 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DE7B24F9B61700E86555 /* CustomActivityIndicator.swift */; };
+		A928DE7E24F9C55500E86555 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DE7D24F9C55500E86555 /* CustomTextField.swift */; };
+		A928DE8224FAD75F00E86555 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928DE8124FAD75F00E86555 /* CustomNavBar.swift */; };
 		A9AD53F524E8DCB6003AA446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD53F424E8DCB6003AA446 /* AppDelegate.swift */; };
 		A9AD53F724E8DCB6003AA446 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD53F624E8DCB6003AA446 /* SceneDelegate.swift */; };
 		A9AD53F924E8DCB6003AA446 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD53F824E8DCB6003AA446 /* MainController.swift */; };
@@ -31,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		322B67CCCBC3F9AC4BA5B246 /* Pods-Bookly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookly.debug.xcconfig"; path = "Target Support Files/Pods-Bookly/Pods-Bookly.debug.xcconfig"; sourceTree = "<group>"; };
+		A928DE7B24F9B61700E86555 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		A928DE7D24F9C55500E86555 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A928DE8124FAD75F00E86555 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		A9AD53F124E8DCB6003AA446 /* Bookly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9AD53F424E8DCB6003AA446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9AD53F624E8DCB6003AA446 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A928DE8524FB05E100E86555 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A9AD53FA24E8DCB6003AA446 /* Main.storyboard */,
+				A9AD53FF24E8DCB8003AA446 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A928DE8624FB05EE00E86555 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */,
+				A9AD540224E8DCB8003AA446 /* Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		A928DE8724FB05FD00E86555 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A9AD53F424E8DCB6003AA446 /* AppDelegate.swift */,
+				A9AD53F624E8DCB6003AA446 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		A9AD53E824E8DCB6003AA446 = {
 			isa = PBXGroup;
 			children = (
@@ -106,16 +139,13 @@
 		A9AD53F324E8DCB6003AA446 /* Bookly */ = {
 			isa = PBXGroup;
 			children = (
-				A9AD540A24E8DDE3003AA446 /* Controller */,
-				A9AD540924E8DDDF003AA446 /* View */,
+				A928DE8724FB05FD00E86555 /* Delegates */,
+				A928DE8624FB05EE00E86555 /* Plists */,
+				A928DE8524FB05E100E86555 /* Storyboards */,
 				A9AD540824E8DDDA003AA446 /* Model */,
-				A9AD53F424E8DCB6003AA446 /* AppDelegate.swift */,
-				A9AD53F624E8DCB6003AA446 /* SceneDelegate.swift */,
-				A9AD53FA24E8DCB6003AA446 /* Main.storyboard */,
+				A9AD540924E8DDDF003AA446 /* View */,
+				A9AD540A24E8DDE3003AA446 /* Controller */,
 				A9AD53FD24E8DCB8003AA446 /* Assets.xcassets */,
-				A9AD53FF24E8DCB8003AA446 /* LaunchScreen.storyboard */,
-				A9AD542124F3EA6A003AA446 /* GoogleService-Info.plist */,
-				A9AD540224E8DCB8003AA446 /* Info.plist */,
 				A9AD541F24F13C43003AA446 /* Constants.swift */,
 				A9AD542324F91297003AA446 /* Protocols.swift */,
 			);
@@ -139,6 +169,9 @@
 				A9AD541124E99F66003AA446 /* BookCell.swift */,
 				A9AD541924EC8218003AA446 /* CustomLabel.swift */,
 				A9AD541D24EF1E8F003AA446 /* CustomTextView.swift */,
+				A928DE7B24F9B61700E86555 /* CustomActivityIndicator.swift */,
+				A928DE7D24F9C55500E86555 /* CustomTextField.swift */,
+				A928DE8124FAD75F00E86555 /* CustomNavBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,11 +311,14 @@
 				A9AD541024E99F35003AA446 /* Book.swift in Sources */,
 				A9AD541624E9C7ED003AA446 /* DataSet.swift in Sources */,
 				A9AD541224E99F66003AA446 /* BookCell.swift in Sources */,
+				A928DE7E24F9C55500E86555 /* CustomTextField.swift in Sources */,
 				A9AD53F724E8DCB6003AA446 /* SceneDelegate.swift in Sources */,
 				A9AD541C24EEEA8D003AA446 /* NewBookController.swift in Sources */,
 				A9AD541824EB860F003AA446 /* BookController.swift in Sources */,
+				A928DE8224FAD75F00E86555 /* CustomNavBar.swift in Sources */,
 				A9AD541424E9A27C003AA446 /* GenreController.swift in Sources */,
 				A9AD542024F13C44003AA446 /* Constants.swift in Sources */,
+				A928DE7C24F9B61700E86555 /* CustomActivityIndicator.swift in Sources */,
 				A9AD540C24E8DE09003AA446 /* GenreCell.swift in Sources */,
 				A9AD540E24E99CBC003AA446 /* BookGenre.swift in Sources */,
 			);

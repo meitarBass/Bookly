@@ -11,4 +11,8 @@ target 'Bookly' do
 
 	# Optionally, include the Swift extensions if you're using Swift.
 	pod 'FirebaseFirestoreSwift'
+
+	# UIAlertView Pod
+	pod 'SCLAlertView'
+
 end

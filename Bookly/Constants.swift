@@ -18,4 +18,3 @@ struct SegueIdentifiers {
     static let BookSegue = "toBookController"
     static let NewBookSegue = "toNewBookController"
 }
-
