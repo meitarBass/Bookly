@@ -66,7 +66,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
                     self.retrievedImages.append(image)
                     
                     // Allow Editing When Done
-                    if index == books.count {
+                    if index == books.count - 1 {
                         self.genresTable.reloadData()
                         self.newBookButton.isEnabled = true
                         self.activityIndicator.stopAnimating()
