@@ -18,3 +18,7 @@ struct SegueIdentifiers {
     static let BookSegue = "toBookController"
     static let NewBookSegue = "toNewBookController"
 }
+
+struct Fonts {
+    static let mainFontBold = "AmericanTypewriter-Bold"
+}

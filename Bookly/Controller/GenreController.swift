@@ -36,32 +36,43 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         genresTable.delegate = self
         genresTable.dataSource = self
         // Do any additional setup after loading the view.
+        
+        // Running Activity Indicator
         activityIndicator = CustomActivityIndicator(frame: CGRect(x: view.frame.width / 2 - 25, y: view.frame.height / 2 - 25, width: 50, height: 50))
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         newBookButton.isEnabled = false
+        
+        // Adding Top Inset For the TableView
         genresTable.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         
         title = genre.genre
             
+        // Getting Books From Online
         ds.downloadBooks(byGenre: genre.genre) { (books, ids) in
             self.bookID = ids
             
+            // Got Data -> Stop Animating
             if books.count == 0 {
+                self.newBookButton.isEnabled = true
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.removeFromSuperview()
-                self.newBookButton.isEnabled = true
             }
             
-            for book in books {
+            // Got Books -> Organize Data & Stop Animating
+            for (index, book) in books.enumerated() {
                 self.ds.downloadImage(path: book.imgName) { (image) in
                     self.retrievedBooks.append(book)
                     self.retrievedImages.append(image)
-                    self.genresTable.reloadData()
                     
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.removeFromSuperview()
-                    self.newBookButton.isEnabled = true
+                    // Allow Editing When Done
+                    if index == books.count {
+                        self.genresTable.reloadData()
+                        self.newBookButton.isEnabled = true
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.removeFromSuperview()
+                    }
+                    
                 }
             }
         }
@@ -71,6 +82,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 1
     }
     
+    // For Adding Padding Between Cells
     func numberOfSections(in tableView: UITableView) -> Int {
         return retrievedBooks.count
     }
@@ -82,6 +94,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
+    // Setting Cell Height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CELL_HEIGHT
     }
@@ -91,6 +104,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         performSegue(withIdentifier: SegueIdentifiers.BookSegue, sender: nil)
     }
     
+    // Setting Cell Spacing
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CELL_SPACING
     }
@@ -105,6 +119,7 @@ class GenreController: UIViewController, UITableViewDelegate, UITableViewDataSou
         performSegue(withIdentifier: SegueIdentifiers.NewBookSegue, sender: nil)
     }
     
+    // MARK: Protocol Functions
     func getNote(note: String) {
         retrievedBooks[passedIndex].note = note
         genresTable.reloadData()

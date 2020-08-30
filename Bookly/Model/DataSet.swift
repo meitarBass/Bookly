@@ -32,6 +32,8 @@ class DataSet {
     let db = Firestore.firestore()
     let storageRef = Storage.storage().reference()
     
+    // MARK: Upload Image
+    
     func uploadImage(image: UIImage, book: Book, completion: @escaping () -> Void) {
         let storageRef = Storage.storage().reference()
         
@@ -53,6 +55,9 @@ class DataSet {
         }
     }
     
+    
+    // MARK: Add New Book
+    
     func addNewBook(book: Book, imgPath: String) {
         // Add a new document with a generated ID
         db.collection("Books").document().setData([
@@ -70,7 +75,25 @@ class DataSet {
                 print("Document successfully written!")
             }
         }
-    }   
+    }
+    
+    // MARK: Update Note
+    
+    func addNote(byBookID bookID: String, note: String) {
+        let ref = db.collection("Books").document(bookID)
+        ref.updateData([
+            "Note": note
+        ]) { err in
+            if let err = err {
+                debugPrint("err \(err)")
+            } else {
+                self.dataUpdatedSuccessfuly(happyMessage: "Your note was saved!")
+                print("Updated successfully")
+            }
+        }
+    }
+    
+    // MARK: Download Books From Online
     
     func downloadBooks(byGenre genre: String, completion: @escaping ([Book], [String]) -> Void) {
         let booksRef = db.collection("Books")
@@ -91,16 +114,7 @@ class DataSet {
         }
     }
     
-    func convertIntoBook(data: [String : Any]) -> Book {
-        let note = data["Note"] as! String
-        let id = data["imgID"] as! String
-        let author = data["Author"] as! String
-        let title = data["Name"] as! String
-        let description = data["Description"] as! String
-        let genre = data["Genre"] as! String
-        
-        return Book(name: title, desciprtion: description, note: note, author: author, imgName: id, bookGenre: genre)
-    }
+    // MARK: Download Image From Online
     
     func downloadImage(path: String, completion: @escaping (UIImage) -> Void ) {
         let imgRef = storageRef.child("Books").child(path)
@@ -118,20 +132,20 @@ class DataSet {
         }
     }
     
-    func addNote(byBookID bookID: String, note: String) {
-        let ref = db.collection("Books").document(bookID)
-        ref.updateData([
-            "Note": note
-        ]) { err in
-            if let err = err {
-                debugPrint("err \(err)")
-            } else {
-                self.dataUpdatedSuccessfuly(happyMessage: "Your note was saved!")
-                print("Updated successfully")
-            }
-        }
+    // MARK: Convert Data Into Book
+    
+    func convertIntoBook(data: [String : Any]) -> Book {
+        let note = data["Note"] as! String
+        let id = data["imgID"] as! String
+        let author = data["Author"] as! String
+        let title = data["Name"] as! String
+        let description = data["Description"] as! String
+        let genre = data["Genre"] as! String
+        
+        return Book(name: title, desciprtion: description, note: note, author: author, imgName: id, bookGenre: genre)
     }
     
+    // MARK: Messages
     
     func requestFailed(error: String) {
         SCLAlertView().showError(error, subTitle: "Please try again later")

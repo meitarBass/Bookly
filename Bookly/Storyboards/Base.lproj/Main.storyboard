@@ -15,9 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Exh-cL-S8K">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kbs-nl-4BO">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -36,7 +33,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="children's" translatesAutoresizingMaskIntoConstraints="NO" id="8Dr-yf-Nno">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="children's" translatesAutoresizingMaskIntoConstraints="NO" id="8Dr-yf-Nno" customClass="CustomImage" customModule="Bookly" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="398" height="128"/>
                                                 </imageView>
                                             </subviews>
@@ -61,14 +58,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Exh-cL-S8K" secondAttribute="trailing" id="3ae-Nx-yrI"/>
                             <constraint firstItem="Kbs-nl-4BO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VTj-yl-lfP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Exh-cL-S8K" secondAttribute="bottom" id="ZMV-fL-ed2"/>
-                            <constraint firstItem="Exh-cL-S8K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eGR-uA-3xe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kbs-nl-4BO" secondAttribute="trailing" id="fXq-Jg-6XM"/>
                             <constraint firstItem="Kbs-nl-4BO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gCS-RT-0Sf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kbs-nl-4BO" secondAttribute="bottom" id="gQx-My-E9b"/>
-                            <constraint firstItem="Exh-cL-S8K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gZw-GF-aGZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -90,9 +83,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-Hl-9fb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oei-V5-DQF">
                                 <rect key="frame" x="8" y="88" width="398" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -171,12 +161,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ssa-5j-sx1" firstAttribute="bottom" secondItem="Oei-V5-DQF" secondAttribute="bottom" id="fzJ-3c-7wN"/>
-                            <constraint firstItem="PIm-Hl-9fb" firstAttribute="top" secondItem="ssa-5j-sx1" secondAttribute="top" id="l1f-8g-x2L"/>
-                            <constraint firstItem="ssa-5j-sx1" firstAttribute="trailing" secondItem="PIm-Hl-9fb" secondAttribute="trailing" id="nW0-rA-U6l"/>
                             <constraint firstItem="Oei-V5-DQF" firstAttribute="leading" secondItem="ssa-5j-sx1" secondAttribute="leading" constant="8" id="noe-Zb-2iI"/>
-                            <constraint firstItem="PIm-Hl-9fb" firstAttribute="leading" secondItem="ssa-5j-sx1" secondAttribute="leading" id="osR-bb-aqC"/>
                             <constraint firstItem="Oei-V5-DQF" firstAttribute="top" secondItem="ssa-5j-sx1" secondAttribute="top" id="s7n-mm-9Ax"/>
-                            <constraint firstItem="ssa-5j-sx1" firstAttribute="bottom" secondItem="PIm-Hl-9fb" secondAttribute="bottom" id="wL2-ta-Ln6"/>
                             <constraint firstItem="ssa-5j-sx1" firstAttribute="trailing" secondItem="Oei-V5-DQF" secondAttribute="trailing" constant="8" id="xAe-sz-a7r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssa-5j-sx1"/>
@@ -207,35 +193,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comics" translatesAutoresizingMaskIntoConstraints="NO" id="UC8-eh-VvX">
-                                <rect key="frame" x="16" y="104" width="382" height="187"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="UC8-eh-VvX">
+                                <rect key="frame" x="16" y="104" width="382" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="350" id="kYu-45-L78"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rS-LS-Cwf">
-                                <rect key="frame" x="16" y="104" width="382" height="187"/>
+                                <rect key="frame" x="16" y="104" width="382" height="350"/>
                                 <connections>
                                     <action selector="pickImagePressed:" destination="tvF-U4-gN7" eventType="touchUpInside" id="O7Q-BQ-tyG"/>
                                     <action selector="pickImagePressed:" destination="9Ga-2f-BFW" eventType="touchUpInside" id="s64-2p-7c1"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="SPt-5I-nwG">
-                                <rect key="frame" x="16" y="323" width="382" height="173"/>
+                                <rect key="frame" x="16" y="486" width="382" height="167.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aF8-pi-TDg">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uth-RS-wUA">
-                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="34"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="34"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5h-Qk-ZDR" customClass="CustomTextField" customModule="Bookly" customModuleProvider="target">
-                                                <rect key="frame" x="136.5" y="0.0" width="245.5" height="34"/>
+                                                <rect key="frame" x="138" y="0.0" width="244" height="34"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -244,15 +230,15 @@
                                         <rect key="frame" x="0.0" y="55" width="382" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Author:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV4-Ow-jVG">
-                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="34"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="34"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="author" textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="CWs-uN-Qx7" customClass="CustomTextField" customModule="Bookly" customModuleProvider="target">
-                                                <rect key="frame" x="136.5" y="0.0" width="245.5" height="34"/>
+                                                <rect key="frame" x="138" y="0.0" width="244" height="34"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -262,22 +248,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="D0B-pc-x6f">
-                                        <rect key="frame" x="0.0" y="110" width="382" height="63"/>
+                                        <rect key="frame" x="0.0" y="110" width="382" height="57.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04P-4L-5MN">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="23.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23.5" id="gbe-wT-HoF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Please enter your book desciprtion here" translatesAutoresizingMaskIntoConstraints="NO" id="KVc-IH-Uc1" customClass="CustomTextView" customModule="Bookly" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="27.5" width="382" height="35.5"/>
+                                                <rect key="frame" x="0.0" y="27.5" width="382" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -343,18 +329,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="757-WJ-nEb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comics" translatesAutoresizingMaskIntoConstraints="NO" id="4H7-VS-e1P">
-                                <rect key="frame" x="16" y="104" width="382" height="187"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="4H7-VS-e1P" customClass="CustomImage" customModule="Bookly" customModuleProvider="target">
+                                <rect key="frame" x="16" y="104" width="382" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="350" id="A2z-Id-ftw"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="MLF-Gu-hvw"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LAz-8P-bC6">
-                                <rect key="frame" x="16" y="307" width="382" height="44.5"/>
+                                <rect key="frame" x="16" y="470" width="382" height="44.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="caR-Zz-GMn"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="hem-rG-Gg3"/>
@@ -364,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1SC-Rb-aDX">
-                                <rect key="frame" x="16" y="367.5" width="382" height="200"/>
+                                <rect key="frame" x="16" y="530.5" width="382" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author: Jonny B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1po-qx-0j1">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="69"/>
@@ -401,17 +384,13 @@
                             <constraint firstItem="Ujf-vH-yvC" firstAttribute="trailing" secondItem="1SC-Rb-aDX" secondAttribute="trailing" constant="16" id="1Ru-HT-tac"/>
                             <constraint firstItem="4H7-VS-e1P" firstAttribute="top" secondItem="Ujf-vH-yvC" secondAttribute="top" constant="16" id="7uZ-Pw-CCa"/>
                             <constraint firstItem="1SC-Rb-aDX" firstAttribute="top" secondItem="LAz-8P-bC6" secondAttribute="bottom" constant="16" id="8wy-vj-87H"/>
-                            <constraint firstItem="Ujf-vH-yvC" firstAttribute="trailing" secondItem="757-WJ-nEb" secondAttribute="trailing" id="Ahm-Qo-bYM"/>
                             <constraint firstItem="LAz-8P-bC6" firstAttribute="top" secondItem="4H7-VS-e1P" secondAttribute="bottom" constant="16" id="OQc-mB-dLu"/>
                             <constraint firstItem="Ujf-vH-yvC" firstAttribute="trailing" secondItem="LAz-8P-bC6" secondAttribute="trailing" constant="16" id="Pm1-7x-312"/>
-                            <constraint firstItem="Ujf-vH-yvC" firstAttribute="bottom" secondItem="757-WJ-nEb" secondAttribute="bottom" id="QTh-N5-w3q"/>
                             <constraint firstAttribute="trailing" secondItem="4H7-VS-e1P" secondAttribute="trailing" constant="16" id="VeS-NR-TMY"/>
                             <constraint firstItem="Ujf-vH-yvC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1SC-Rb-aDX" secondAttribute="bottom" constant="16" id="WCu-ar-xIl"/>
                             <constraint firstItem="4H7-VS-e1P" firstAttribute="leading" secondItem="DcA-Hu-23p" secondAttribute="leading" constant="16" id="fyF-J8-w0l"/>
                             <constraint firstItem="1SC-Rb-aDX" firstAttribute="leading" secondItem="Ujf-vH-yvC" secondAttribute="leading" constant="16" id="iPt-fY-loJ"/>
                             <constraint firstItem="LAz-8P-bC6" firstAttribute="leading" secondItem="Ujf-vH-yvC" secondAttribute="leading" constant="16" id="iZ0-6y-h82"/>
-                            <constraint firstItem="757-WJ-nEb" firstAttribute="top" secondItem="Ujf-vH-yvC" secondAttribute="top" id="o9I-Af-2nL"/>
-                            <constraint firstItem="757-WJ-nEb" firstAttribute="leading" secondItem="Ujf-vH-yvC" secondAttribute="leading" id="xnV-rx-RTP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ujf-vH-yvC"/>
                     </view>
@@ -455,9 +434,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="414" height="896"/>
+        <image name="PlaceholderImage" width="398" height="398"/>
         <image name="children's" width="543" height="187"/>
-        <image name="comics" width="543" height="187"/>
         <image name="square.and.arrow.up.on.square.fill" catalog="system" width="117" height="128"/>
     </resources>
 </document>

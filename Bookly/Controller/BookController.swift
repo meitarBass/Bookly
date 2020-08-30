@@ -17,7 +17,11 @@ class BookController: UIViewController {
     @IBOutlet weak var bookDesciprtion: UILabel!
     
     let data = DataSet()
+    
+    // Current Book Data
     var book: Book!
+    
+    // Current Book Image and ID of Picture
     var image: UIImage!
     var bookID: String!
     
@@ -30,17 +34,13 @@ class BookController: UIViewController {
         bookAuthor.text = "Author: \(book.author)"
         bookNotes.text = "Notes: \(book.note)"
         bookDesciprtion.text = "Description: \(book.desciprtion)"
-        
-        view.addGradientBackground(firstColor: #colorLiteral(red: 0.7176470588, green: 0.9725490196, blue: 0.8588235294, alpha: 0.6), secondColor: #colorLiteral(red: 0.3137254902, green: 0.6549019608, blue: 0.7607843137, alpha: 0.6), height: view.frame.height)
-        
+    
         title = book.name
         
-        
-//        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter-Bold", size: 20)!]
-
     }
     
     @IBAction func addNotePressed(_ sender: Any) {
+        // Adding Note to a Specific Book
         var alert = UIAlertController(title: "Add Note", message: "", preferredStyle: .alert)
         alert = setAlert(alert: alert)
         self.present(alert, animated: true, completion: nil)
@@ -58,7 +58,9 @@ class BookController: UIViewController {
             let firstTextField = alert.textFields![0] as UITextField
             if let note = firstTextField.text {
                 self.bookNotes.text = "Notes: \(note)"
+                // Passing the Note Back
                 self.noteDelegate?.getNote(note: note)
+                // Adding Note to the Storage
                 self.data.addNote(byBookID: self.bookID, note: note)
             }
         })

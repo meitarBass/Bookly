@@ -24,7 +24,6 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         categoriesTable.dataSource = self
         categoriesTable.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         
-//        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter-Bold", size: 20)!]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

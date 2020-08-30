@@ -11,7 +11,7 @@ import UIKit
 class CustomNavBar: UINavigationBar {
 
     override func awakeFromNib() {
-        titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter-Bold", size: 20)!]
+        titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Fonts.mainFontBold, size: 20)!]
 
     }
 }

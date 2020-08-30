@@ -20,6 +20,8 @@ class CustomActivityIndicator: UIActivityIndicatorView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        // Change the size of activity indicator
         transform = CGAffineTransform.init(scaleX: 1.25, y: 1.25)
     }
     
